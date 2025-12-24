@@ -1,0 +1,23 @@
+[project]
+name = "vizzini_chat"
+version = "0.1.0"
+description = "VIZZINI_CHAT using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]>=0.203.1,<1.0.0"
+]
+
+[project.scripts]
+vizzini_chat = "vizzini_chat.main:run"
+run_crew = "vizzini_chat.main:run"
+train = "vizzini_chat.main:train"
+replay = "vizzini_chat.main:replay"
+test = "vizzini_chat.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
