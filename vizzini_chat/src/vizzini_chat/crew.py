@@ -6,8 +6,9 @@ from typing import List
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
 
+
 @CrewBase
-class VizziniChat():
+class VizziniChat:
     """VizziniChat crew"""
 
     agents: List[BaseAgent]
@@ -22,14 +23,14 @@ class VizziniChat():
     @agent
     def customer_service_agent(self) -> Agent:
         return Agent(
-            config=self.agents_config['customer_service_agent'], # type: ignore[index]
+            config=self.agents_config['customer_service_agent'],     # type: ignore[index]
             verbose=True
         )
 
     @agent
     def coffee_beans_specialist(self) -> Agent:
         return Agent(
-            config=self.agents_config['coffee_beans_specialist'], # type: ignore[index]
+            config=self.agents_config['coffee_beans_specialist'],   # type: ignore[index]
             verbose=True
         )
 
@@ -46,13 +47,13 @@ class VizziniChat():
     @task
     def gather_customer_preferences(self) -> Task:
         return Task(
-            config=self.tasks_config['gather_customer_preferences'], # type: ignore[index]
+            config=self.tasks_config['gather_customer_preferences'],     # type: ignore[index]
         )
 
     @task
     def search_and_recommend_blends(self) -> Task:
         return Task(
-            config=self.tasks_config['search_and_recommend_blends'], # type: ignore[index]
+            config=self.tasks_config['search_and_recommend_blends'],     # type: ignore[index]
             output_file='report.md'
         )
     
@@ -70,9 +71,10 @@ class VizziniChat():
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
         return Crew(
-            agents=self.agents, # Automatically created by the @agent decorator
-            tasks=self.tasks, # Automatically created by the @task decorator
+            agents=self.agents,  # Automatically created by the @agent decorator
+            tasks=self.tasks,    # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=True,
-            # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+            # process=Process.hierarchical
+            # In case you want to use that instead https://docs.crewai.com/how-to/Hierarchical/
         )

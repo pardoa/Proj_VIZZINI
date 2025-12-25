@@ -1,4 +1,4 @@
-from vizzini_chat.crew import VizziniChat
+from crew import VizziniChat
 
 def main():
     crew = VizziniChat().crew()

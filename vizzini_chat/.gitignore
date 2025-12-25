@@ -1,3 +1,8 @@
-.env
+# PyCharm project files
+.idea/
+# Byte-compiled files
 __pycache__/
+# Python virtual environments (if you use venv folders inside the project)
+venv/
+.env
 .DS_Store
